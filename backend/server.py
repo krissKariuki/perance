@@ -5,7 +5,7 @@ import json
 app=Flask(__name__)
 CORS(app)
 
-dataFilePath='data.json'
+dataFilePath='../db/data.json'
 
 class Recorder:
     def __init__(self,targetAmount,period,filePath):
@@ -107,14 +107,14 @@ class Recorder:
 
 myRecord=Recorder(50000,365,dataFilePath)
 
-@app.route('/perance',methods=['POST'])
+@app.route('/data',methods=['POST'])
 def handle_post():
     record=request.get_json()
     myRecord.update(record)
     
     return 'recorded an update'
 
-@app.route('/perance',methods=['GET'])
+@app.route('/data',methods=['GET'])
 def handle_get():
     data=myRecord.data
     
