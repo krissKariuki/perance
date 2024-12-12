@@ -60,10 +60,10 @@ class Recorder:
 
         record={
             'date':date,
-            'mpesa':{'balance':mpesaBalance,'change':mpesaChange},
-            'mshwari':{'balance':mshwariBalance,'change':mshwariChange},
-            'locked':{'balance':lockedBalance,'change':lockedChange},
-            'volume':{'balance':volumeBalance,'change':volumeChange}
+            'mpesa':{'balance':round(mpesaBalance,2),'change':round(mpesaChange,2)},
+            'mshwari':{'balance':round(mshwariBalance,2),'change':round(mshwariChange,2)},
+            'locked':{'balance':round(lockedBalance,2),'change':round(lockedChange,2)},
+            'volume':{'balance':round(volumeBalance,2),'change':round(volumeChange,2)}
             }
         
         self.records.append(record)
@@ -120,4 +120,4 @@ def handle_get():
     
     return jsonify(data)
 
-app.run(debug=True,host='localhost',port=8000)
+app.run(debug=True,host='0.0.0.0',port=8000)

@@ -1,0 +1,65 @@
+:root{
+    --sxxx:0.2rem;
+    --sxx:0.4rem;
+    --sx:0.6rem;
+    --s:0.8rem;
+  
+    --m:1rem;
+    --mx:1.2rem;
+    --mxx:1.6rem;
+    --mxxx:2.4rem;
+  
+    --l:4rem;
+    --lx:7.2rem;
+    --lxx:13.6rem;
+    --lxxx:16.4rem;
+  
+    --text:#666666;
+    --grey:grey;
+    --primary:white;
+    --secondary:#F0F0F0;
+    --tertiary:#D9D9D9;
+    --accent:#007AFF;
+    --accent-hover:#0058DD22;
+    --highlight:#007AFF22;
+  }
+  *{
+    box-sizing:border-box;
+    position:relative;
+    user-select:none;
+    margin:0;
+  }
+  *::-webkit-scrollbar{
+    display:none;
+  }
+  body{
+    margin:0 auto;
+    font-size:1rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:var(--text);
+  }
+  button{
+    border:none;
+  }
+  input{
+    outline:none;
+    font-family:inherit;
+  }
+  .center-self{
+    left:50%;
+    transform:translate(-50%,0%)
+  }
+  .center-child{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .active-tab{
+    color:var(--accent)!important;
+    background:var(--accent-hover)!important;
+  }
+  .page{
+    background:var(--secondary);
+    width:100vw;
+    height:100vh;
+  }
