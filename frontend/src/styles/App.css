@@ -62,4 +62,5 @@
     background:var(--secondary);
     width:100vw;
     height:100vh;
+    overflow:scroll;
   }
