@@ -8,7 +8,7 @@ export default function Header(){
 
             <div className="searchbar">
             <span className='material-icons center-child search-icon'>search</span>
-            <input type="text" className="search-input" placeholder='search here'/>
+            <input type="text" id="search-input" className="search-input" placeholder='search here'/>
             </div>
             <div className="dynamic-window"></div>
             <div className="account-actions">

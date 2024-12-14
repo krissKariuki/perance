@@ -1,3 +1,5 @@
+import Record from './Record'
+
 export default function Mainframe(){
     return(
         <div className="mainframe">
@@ -55,11 +57,11 @@ export default function Mainframe(){
                     <div className="info-card variables-card">
                     <span className="material-symbols-outlined center-child card-icon">shopping_bag_speed</span>
                     <h4 className="card-label">spending</h4>
-                        <p className="variable-info">
+                        <p className="spending-info">
                             <span className="label">total</span>
                             <span className="currency">Kes</span><span className="spending">152.00</span>
                         </p>    
-                        <p className="variable-info">
+                        <p className="spending-info">
                             <span className="label">saveSpend ratio</span>
                             <span className="currency">Kes</span><span className="saveSpendRatio">47.53</span>
                         </p>
@@ -71,10 +73,66 @@ export default function Mainframe(){
                 </div>
             </div>
             <div className="right-section">
-                <div className="volume-card">
-              
+                <div className="recentRecord-card">
+
+                    <div className="recentRecord recent-mpesa">
+                        <h4 className="recentLabel">mpesa</h4>
+                        <p className="recent-field recentField-balance">
+                            <span className="currency">Kes</span><span className="recent-balance">1500.00</span>
+                        </p>
+                        <p className="recent-field recentField-change">
+                        <span className="recent-balance">+1260.00</span>
+                        </p>
+                    </div>
+
+                    <div className="recentRecord recent-mshwari">
+                        <h4 className="recentLabel">mshwari</h4>
+                        <p className="recent-field recentField-balance">
+                            <span className="currency">Kes</span><span className="recent-balance">1500.00</span>
+                        </p>
+                        <p className="recent-field recentField-change">
+                        <span className="recent-balance">+1260.00</span>
+                        </p>
+                    </div>
+                    
+                    <div className="recentRecord recent-locked">
+                        <h4 className="recentLabel">locked</h4>
+                        <p className="recent-field recentField-balance">
+                            <span className="currency">Kes</span><span className="recent-balance">1500.00</span>
+                        </p>
+                        <p className="recent-field recentField-change">
+                        <span className="recent-balance">+1260.00</span>
+                        </p>
+                    </div>
+                    
+                    <div className="recentRecord recent-volume">
+                        <h4 className="recentLabel">volume</h4>
+                        <p className="recent-field recentField-balance">
+                            <span className="currency">Kes</span><span className="recent-balance">1500.00</span>
+                        </p>
+                        <p className="recent-field recentField-change">
+                        <span className="recent-balance">+1260.00</span>
+                        </p>
+                    </div>
                 </div>
-                <div className="history-card"></div>
+                <div className="history-card">
+                    <div className="historyCard-label">
+                        <p>volume</p>
+                        <p>mpesa</p>
+                        <p>mshwari</p>
+                        <p>locked</p>
+                    </div>
+                    <div className="historyCard-records">
+                    <Record/>
+                    <Record/>
+                    <Record/>
+                    <Record/>
+                    <Record/>
+                    <Record/>
+                    <Record/>
+                    <Record/>
+                    </div>
+                </div>
             </div>
         </div>
     )
