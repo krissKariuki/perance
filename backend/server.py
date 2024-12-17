@@ -19,13 +19,14 @@ class Recorder:
         self.currentAmount=data.get('currentAmount',0)
         self.remainingAmount=data.get('remainingAmount',0)
         self.completedAmountPctg=data.get('completedAmountPctg',0)
-        self.deficitAmount=data.get('deficitAmount',0)
+        self.surplusAmount=data.get('surplusAmount',0)
 
         self.targetPeriod=data.get('period',period)
         self.currentPeriod=data.get('currentPeriod',0)
         self.remainingPeriod=data.get('remainingPeriod',0)
         self.completedPeriodPctg=data.get('completedPeriodPctg',0)
-        
+        self.surplusPeriod=data.get('surplusPeriod',0)
+
         self.spending=data.get('spending',0)
         self.saveSpendRatio=data.get('saveSpendRatio',0)
         
@@ -77,7 +78,9 @@ class Recorder:
         self.currentAmount=volumeBalance
         self.remainingAmount=self.targetAmount-self.currentAmount
         self.completedAmountPctg=(self.currentAmount/self.targetAmount)*100
-        self.deficitAmount=0 if self.currentAmount>self.expectedAmount else self.expectedAmount-self.currentAmount
+
+        self.surplusPeriod=(self.currentAmount-self.expectedAmount)/self.dailyTargetAmount
+        self.surplusAmount=self.currentAmount-self.expectedAmount
 
         if volumeChange<0:
             self.spending+=abs(volumeChange)
@@ -90,12 +93,13 @@ class Recorder:
         self.data['currentAmount']=round(self.currentAmount,2)
         self.data['remainingAmount']=round(self.remainingAmount,2)
         self.data['completedAmountPctg']=round(self.completedAmountPctg,2)
-        self.data['deficitAmount']=round(self.deficitAmount,2)
+        self.data['surplusAmount']=round(self.surplusAmount,2)
 
         self.data['targetPeriod']=self.targetPeriod
         self.data['currentPeriod']=self.currentPeriod
         self.data['remainingPeriod']=self.remainingPeriod
         self.data['completedPeriodPctg']=round(self.completedPeriodPctg,2)
+        self.data['surplusPeriod']=round(self.surplusPeriod,2)
 
         self.data['spending']=round(self.spending,2)
         self.data['saveSpendRatio']=round(self.saveSpendRatio,2)

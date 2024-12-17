@@ -11,14 +11,7 @@ export default function Header(){
             <input type="text" id="search-input" className="search-input" placeholder='search here'/>
             </div>
             <div className="dynamic-window"></div>
-            <div className="account-actions">
-                <span className="material-symbols-outlined">edit</span>
-                <span className="material-symbols-outlined">notifications</span>
-                <span className="material-symbols-outlined">switch_right</span>
-                <Dp/>
-                <span className="username">John Doe</span>
-            </div>
-
+            <Dp/>
         </div>
     )
 }

@@ -20,8 +20,10 @@
     --secondary:#F0F0F0;
     --tertiary:#D9D9D9;
     --accent:#007AFF;
-    --accent-hover:#0058DD22;
+    --accent-hover:#0058AAFF;
     --highlight:#007AFF22;
+    --positive-change:rgba(50,200,50,1);
+    --negative-change:rgba(200,50,50,1);
   }
   *{
     box-sizing:border-box;
@@ -56,11 +58,29 @@
   }
   .active-tab{
     color:var(--accent)!important;
-    background:var(--accent-hover)!important;
+    background:var(--highlight)!important;
   }
+  .positive-fore{
+    color:var(--positive-change);
+  }
+  .negative-fore{
+    color:var(--negative-change)
+  }
+  .positive-bg{
+    color:var(--primary);
+    background:var(--positive-change);
+  }
+  .negative-bg{
+    color:var(--primary);
+    background:var(--negative-change);
+  }
+
   .page{
     background:var(--secondary);
-    width:100vw;
-    height:100vh;
+    width:calc(100vw - 150px);
+    height:calc(100vh - 60px);
+    position:absolute;
+    top:60px;
+    left:150px;
     overflow:scroll;
   }

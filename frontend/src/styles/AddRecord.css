@@ -1,0 +1,60 @@
+.form-field{
+    width:400px;
+    height:calc(100vh - 60px);
+    background:var(--primary);
+    padding:8px 0px 8px;
+    margin-top:0px;
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content:flex-start;
+    align-items:center;
+    gap:20px;
+}
+label{
+    text-transform:capitalize;
+    width:80%;
+    height:40px;
+    background:var(--primary);
+    border:1px solid var(--tertiary);
+    display:flex;
+    flex-flow:column wrap;
+}
+label span{
+    z-index:1;
+    width:max-content;
+    font-size:var(--s);
+    background:var(--primary);
+    padding:2px 8px;
+    margin-right:8px;
+    top:-12px;
+    left:8px;
+}
+label input{
+    position:absolute;
+    top:0;
+    left:0;
+    color:var(--text);
+    width:100%;
+    height:calc(100% - 5px);
+    background:inherit;
+    border:none;
+    padding-inline:16px;
+
+}
+label input::placeholder{
+    color:silver;
+}
+
+#add-record{
+    width:80%;
+    color:var(--primary);
+    background:var(--accent);
+    text-transform:capitalize;
+    outline:none;
+    position:absolute;
+    bottom:56px;    
+    padding:8px 12px;
+}
+#add-record:hover{
+    background:var(--accent-hover);
+}
