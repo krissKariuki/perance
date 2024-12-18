@@ -5,7 +5,7 @@ import json
 app=Flask(__name__)
 CORS(app)
 
-dataFilePath='../db/data.json'
+dataFilePath='../frontend/public/db/newData.json'
 
 class Recorder:
     def __init__(self,targetAmount,period,filePath):
@@ -44,14 +44,14 @@ class Recorder:
             
             else:
                 previousRecord=self.records[len(self.records)-1]
-                change=record[key]-previousRecord[key]['balance']
+                change=float(record[key])-float(previousRecord[key]['balance'])
             
             return change
         
         date=record['date']
-        mpesaBalance=record['mpesa']
-        mshwariBalance=record['mshwari']
-        lockedBalance=record['locked']
+        mpesaBalance=float(record['mpesa'])
+        mshwariBalance=float(record['mshwari'])
+        lockedBalance=float(record['locked'])
         volumeBalance=mpesaBalance+mshwariBalance+lockedBalance
         
         mpesaChange=track_change('mpesa')
@@ -116,11 +116,12 @@ def handle_post():
     record=request.get_json()
     myRecord.update(record)
     
-    return 'recorded an update'
+    return {'message':'recorded an update'}
 
 @app.route('/data',methods=['GET'])
 def handle_get():
-    data=myRecord.data
+    with open(dataFilePath,'r') as file:
+        data=json.load(file)
     
     return jsonify(data)
 

@@ -16,11 +16,6 @@ export default function Sidebar({tab,switchPage}){
                         <span className="icon material-symbols-outlined">add_box</span>
                         <span>new record</span>
                     </button>
-
-                    <button  className={tab==='nav-settings'?`nav ${activeTab}`:'nav'} onClick={()=>switchPage({tab:'nav-settings',page:'Settings'})}>
-                        <span className="icon material-symbols-outlined">tune</span>
-                        <span>settings</span>
-                    </button>
                 </div>
             </div>
             <div className="more">

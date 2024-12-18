@@ -1,6 +1,9 @@
 import ReactECharts from "echarts-for-react"
 
 const ChartComponent = ({chartData}) => {
+  const barColor="#007AFF99"
+  const lineColor='indigo'
+
   const options = {
     title: {
       text:null,
@@ -10,29 +13,31 @@ const ChartComponent = ({chartData}) => {
     },
     xAxis: {
       type: "time",
+      splitNumber:2,
       axisLabel:{
+        interval:3,
         formatter:value=>{
           const date=new Date(value).toLocaleString('en-us',{month:'short',day:'2-digit'})
           return date
         }
-      }
       },
       axisLine:{
         show:false
       },
       axisTick:{
         show:false
-      },
+      }
+    },
     yAxis: {
       type: "value",
-      splitNumber:0
+      splitNumber:4
     },
     series: [
       {
         name: "balance",
         type: "bar", // 'line', 'pie', 'scatter', etc.
         data:chartData.map(record=>[new Date(record.date),record.volume.balance]),
-        color:"#007AFF99",
+        color:barColor,
         smooth:true,
         showSymbol:false,
         barWidth:'75%',
@@ -44,7 +49,7 @@ const ChartComponent = ({chartData}) => {
         name: "change",
         type: "line", // 'line', 'pie', 'scatter', etc.
         data:chartData.map(record=>[new Date(record.date),record.volume.change]),
-        color:"indigo",
+        color:lineColor,
         smooth:true,
         showSymbol:false
       },

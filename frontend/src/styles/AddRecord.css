@@ -1,28 +1,57 @@
 .form-field{
     width:400px;
-    height:calc(100vh - 60px);
+    top:0px;
+    height:98%;
     background:var(--primary);
-    padding:8px 0px 8px;
-    margin-top:0px;
+    padding:56px 0px 8px;
+    margin:4px;
     display:flex;
     flex-flow:column nowrap;
-    justify-content:flex-start;
+    justify-content:flex-start ;
     align-items:center;
-    gap:20px;
+    gap:32px;
+}
+
+.preview{
+    position:absolute;
+    top:4px;
+    right:4px;
+    width:calc(100% - 412px);
+    height:98%;
+    background:var(--primary);
+}
+.preview h4{
+    text-align:center;
+    text-transform:capitalize;
+    width:100%;
+    top:40%;
+}
+.preview span{
+    color:silver;
+    width:100%;
+}
+.preview .icon{
+    color:silver;
+    font-size:var(--l);
+}
+.AddRecord{
+    background:var(--secondary);
 }
 label{
     text-transform:capitalize;
     width:80%;
     height:40px;
     background:var(--primary);
-    border:1px solid var(--tertiary);
+    border:1px solid black;
     display:flex;
     flex-flow:column wrap;
 }
 label span{
     z-index:1;
     width:max-content;
-    font-size:var(--s);
+    font-size:var(--sx);
+    font-weight:bold;
+    color:var(--grey);
     background:var(--primary);
     padding:2px 8px;
     margin-right:8px;
@@ -52,7 +81,7 @@ label input::placeholder{
     text-transform:capitalize;
     outline:none;
     position:absolute;
-    bottom:56px;    
+    bottom:32px;    
     padding:8px 12px;
 }
 #add-record:hover{

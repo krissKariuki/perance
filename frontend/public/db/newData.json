@@ -2,17 +2,17 @@
  "targetAmount":50000,
  "dailyTargetAmount":136.99,
  "expectedAmount":2465.82,
- "currentAmount":10000.0,
- "surplusAmount":7534.18,
+ "currentAmount":19348.53,
+ "surplusAmount":16882.71,
  "targetPeriod":365,
  "currentPeriod":18,
- "surplusPeriod":55.0,
- "completedAmountPctg":20.0,
+ "surplusPeriod":123.24,
+ "completedAmountPctg":38.7,
  "completedPeriodPctg":4.93,
- "remainingAmount":40000.0,
+ "remainingAmount":30651.47,
  "remainingPeriod":347,
- "spending":607.53,
- "saveSpendRatio":16.46,
+ "spending":644.0,
+ "saveSpendRatio":30.04,
  "records":[
   {
    "date":"2024-12-1",
@@ -321,39 +321,39 @@
   {
    "date":"2024-12-17",
    "mpesa":{
-    "balance":100.0,
-    "change":81.86
+    "balance":145.14,
+    "change":127.0
    },
    "mshwari":{
-    "balance":100.0,
-    "change":-629.39
+    "balance":379.39,
+    "change":-350.0
    },
    "locked":{
-    "balance":8700.0,
-    "change":361.0
+    "balance":8339.0,
+    "change":0.0
    },
    "volume":{
-    "balance":8900.0,
-    "change":-186.53
+    "balance":8863.53,
+    "change":-223.0
    }
   },
   {
    "date":"2024-12-18",
    "mpesa":{
-    "balance":800.0,
-    "change":700.0
+    "balance":630.14,
+    "change":485.0
    },
    "mshwari":{
-    "balance":1200.0,
-    "change":1100.0
+    "balance":379.39,
+    "change":0.0
    },
    "locked":{
-    "balance":8000.0,
-    "change":-700.0
+    "balance":18339.0,
+    "change":10000.0
    },
    "volume":{
-    "balance":10000.0,
-    "change":1100.0
+    "balance":19348.53,
+    "change":10485.0
    }
   }
  ],
