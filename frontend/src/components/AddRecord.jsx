@@ -7,6 +7,9 @@ export default function AddRecord({addRecord,data}){
     const [newMpesa,setNewMpesa]=useState('')
     const [newMshwari,setNewMshwari]=useState('')
     const [newLocked,setNewLocked]=useState('')
+    const [liveRecord,setLiveRecord]=useState({date:newDate,mpesa:{balance:0,change:0},mshwari:{balance:0,change:0},locked:{balance:0,change:0},volume:{balance:0,change:0}})
+
+    const previousRecord=[...data.records].reverse()[0]
 
     const updateValue=(type,value)=>
     {
@@ -16,6 +19,7 @@ export default function AddRecord({addRecord,data}){
             'locked':()=>setNewLocked(value),
             'date':()=>setNewDate(value)
         }
+       
         return mapInputStates[type]?.()
     }
     const handleSubmit=(e)=>{
@@ -35,6 +39,23 @@ export default function AddRecord({addRecord,data}){
         setNewLocked('')
     }
 
+    useEffect(()=>{
+
+        const newMpesaChange=(newMpesa-previousRecord.mpesa.balance).toFixed(2)
+        const newMshwariChange=(newMshwari-previousRecord.mshwari.balance).toFixed(2)
+        const newLockedChange=(newLocked-previousRecord.locked.balance).toFixed(2)
+
+        const newVolume=(parseFloat(newMpesa)||0) +(parseFloat(newMshwari) ||0) +(parseFloat(newLocked)||0)
+        const newVolumeChange=(newVolume-previousRecord.volume.balance).toFixed(2)
+
+        setLiveRecord({
+            date:newDate,
+            mpesa:{balance:newMpesa,change:newMpesaChange},
+            mshwari:{balance:newMshwari,change:newMshwariChange},
+            locked:{balance:newLocked,change:newLockedChange},
+            volume:{balance:newVolume,change:newVolumeChange}
+        })
+    },[newDate,newMpesa,newMshwari,newLocked])
     return(
         <section className="page AddRecord">
             <form className="form-field" onSubmit={handleSubmit}>
@@ -62,10 +83,17 @@ export default function AddRecord({addRecord,data}){
             </form>
 
             <div className="preview">
-                <h4 className='center-self'>
-                    <span className="icon material-symbols-outlined">construction</span>
-                    <span>updates will be made to this page soon</span>
-                    </h4>
+            <div className="historyCard-label">
+                        <p>volume</p>
+                        <p>mpesa</p>
+                        <p>mshwari</p>
+                        <p>locked</p>
+                    </div>
+                <h5>Yesterday's record</h5>
+                <Record recordData={previousRecord}/>   
+                <span className="icon material-symbols-outlined">arrow_downward</span>
+                <h5 className='live-record-label'>Live record</h5>
+                <Record recordData={liveRecord}/>
             </div>
         </section>
     )
